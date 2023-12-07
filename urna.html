@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #c29a9a;
+      margin: 30px;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200vh;
+    }
+
+    .container {
+      margin: auto;
+      background-color: #fff;
+      border: 2px solid #333;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      height: 300px;
+      width: 300px;
+      
+      
+      
+    }
+
+    .candidato {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .candidato img {
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .vote-btn {
+      background-color: #3498db;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="candidato">
+    <img src="candidato.jpg" alt="Candidato 1" width="50">
+    <span>Candidato 1</span>
+    <button class="vote-btn" onclick="vote(1)">Votar</button>
+  </div>
+
+  <div class="candidato">
+    <img src="candidata1.jpg" alt="Candidato 2" width="50">
+    <span>Candidato 2</span>
+    <button class="vote-btn" onclick="vote(2)">Votar</button>
+  </div>
+
+  <div class="candidato">
+    <img src="candidata2.jpg" alt="Candidato 3" width="50">
+    <span>Candidato 3</span>
+    <button class="vote-btn" onclick="vote(3)">Votar</button>
+  </div>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  let votes = [0, 0, 0];
+
+  function vote(candidate) {
+    votes[candidate - 1]++;
+    updateResult();
+  }
+
+  function updateResult() {
+    const resultElement = document.getElementById('result');
+    resultElement.innerHTML = `
+      Resultado:<br>
+      Candidato 1: ${votes[0]} votos<br>
+      Candidato 2: ${votes[1]} votos<br>
+      Candidato 3: ${votes[2]} votos
+    `;
+  }
+</script>
+
+</body>
+</html>
